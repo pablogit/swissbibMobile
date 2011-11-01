@@ -59,21 +59,18 @@ include("include/Header.php");
 		}
 		echo '"/>';
 			
-		echo '<input type="submit" value="Swissbib Search" data-icon="search" data-iconpos="right" />';
+		echo '<input type="submit" value="Search" data-icon="search" data-iconpos="right" />';
 
-		echo '<fieldset data-role="controlgroup">';
-				 
-		
-		echo '<input type="checkbox" name="libraryfilter" id="checkbox-1" class="custom"';
-		if(isset($_REQUEST["libraryfilter"]) and $_REQUEST["libraryfilter"]=="on"){
-			echo "checked";
+		if(isset($_REQUEST["library"])){
+			echo '<fieldset data-role="controlgroup">';
+			echo '<input type="checkbox" name="libraryfilter" id="checkbox-1" class="custom"';
+			if(isset($_REQUEST["libraryfilter"]) and $_REQUEST["libraryfilter"]=="on"){
+				echo "checked";
+			}
+			echo '>';
+			echo '<label for="checkbox-1">'.getLibraryName($_REQUEST["library"]).'</label>';
+			echo '</fieldset>';
 		}
-
-		echo '>';
-
-		echo '<label for="checkbox-1">my library</label>';
-		echo '</fieldset>';
-
 		echo '</form>';
 	}
 	?>
