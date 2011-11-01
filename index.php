@@ -28,7 +28,7 @@ include("include/Header.php");
 <body data-theme="l">
 
 <div data-role="page" data-add-back-btn="true">
-  <div data-role="header" data-theme="l" style="background: #32CD0F;">
+  <div data-role="header" data-theme="l">
     <h1>Swissbib</h1>
   </div>
   <div data-role="content">
