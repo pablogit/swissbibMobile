@@ -52,4 +52,4 @@ The service is provided as is. It is not guaranteed that there will be any furth
 Licence
 -------
 
-GNU GPL
+The source code of swissbibMobile is publicly available under the version 3 of the GNU General Public License.
