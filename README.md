@@ -23,7 +23,7 @@ You can also used the predefined solutions of swissbibMobile
 * [search the IDS Basel-Bern network only (network code IDSBB) with a predefined filter for the library UB Basel (library code A100)](http://sisbsrv15.epfl.ch/library/swissbib/index.php?network=IDSBB&library=A100)
 * [search only the IDS Basel-Bern (network code IDSBB)](http://sisbsrv15.epfl.ch/library/swissbib/index.php?network=IDSBB)
 
-To use this, you need to add the wanted parameters after the url `http://sisbsrv15.epfl.ch/library/swissbib?`. For example for IDS Basel-Bern network, add `network=IDSBB`. For UB Basel, add `library=A100`. Have a look at the list of (all library codes and network codes)[http://www.swissbib.ch/TouchPoint/nose/common/docs/Codelist_for_swissbib_20100131.pdf].
+To use this, you need to add the wanted parameters after the url `http://sisbsrv15.epfl.ch/library/swissbib?`. For example for IDS Basel-Bern network, add `network=IDSBB`. For UB Basel, add `library=A100`. Have a look at the list of [all library codes and network codes](http://www.swissbib.ch/TouchPoint/nose/common/docs/Codelist_for_swissbib_20100131.pdf).
 
 
 Use it for your library online
