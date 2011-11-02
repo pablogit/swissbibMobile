@@ -1,7 +1,21 @@
 ﻿<!DOCTYPE html>
 <?php
-//Swissbib Version 
 include("include/Header.php");
+//get browser language
+$languages=array("de", "fr", "it", "en");
+if (!isset($_REQUEST["language"])) {
+	if (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
+		$language=substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2);		
+		if(!in_array($language, $languages)) {
+			$language="de"; //default language is german
+		}
+	} else {
+		$language="de"; 
+	}
+} else {
+	$language=$_REQUEST["language"];
+}
+
 ?>
 <html>
   <head>
@@ -58,10 +72,12 @@ include("include/Header.php");
 			echo $_REQUEST["library"];
 		}
 		echo '"/>';
+		
+		echo '<input type="hidden" name="language" value="'.$language.'"/>';
 			
-		echo '<input type="submit" value="Search" data-icon="search" data-iconpos="right" />';
+		echo '<input type="submit" value="'.getMessage("search",$language).'" data-icon="search" data-iconpos="right" />';
 
-		if(isset($_REQUEST["library"])){
+		if(isset($_REQUEST["library"]) && $_REQUEST["library"]!=false){
 			echo '<fieldset data-role="controlgroup">';
 			echo '<input type="checkbox" name="libraryfilter" id="checkbox-1" class="custom"';
 			if(isset($_REQUEST["libraryfilter"]) and $_REQUEST["libraryfilter"]=="on"){
@@ -112,32 +128,46 @@ if(isset($_REQUEST["q"]))
 		$offset=1;
 	}	
 
-	search($_REQUEST["q"], $network, $library, $offset, "en");	
+	search($_REQUEST["q"], $network, $library, $offset, $language);	
 	
 }
 else if(isset($_REQUEST["id"]))
 {
 	$library=$_REQUEST["library"];
 	//display a single item	
-	displayItem($_REQUEST["id"], $network, $library, "en");	
+	displayItem($_REQUEST["id"], $network, $library, $language);	
 }
 else
 {
 echo '
-<br /><br />
-<ul data-role="listview">
-  <li>about...</li>
-
-</ul>
 
 <br/><br/>
 <ul data-role="listview">
-  <li><a href="http://swissbib.ch/?nomobile" rel="external" target="_blank">Full website</a></li>
+  <li><a href="http://swissbib.ch/?nomobile" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
 </ul>
 
 	<br />
+<div data-role="controlgroup" data-type="horizontal" align="center">';
 
-';
+	
+	
+	foreach ($languages as $lang){
+	
+		$queryString=$_SERVER["QUERY_STRING"];
+		$queryString=preg_replace("/&language=[a-z]{2}/","",$queryString);
+		echo '<a href="'.$_SERVER["PHP_SELF"].'?'.$queryString.'&language='.$lang.'" data-role="button"';
+		if ($lang == $language) {
+			echo ' class="ui-btn-active"';
+		}
+		echo '>';
+		echo $lang;
+		echo '</a>';
+	}
+
+	echo '</div>';
+	echo getMessage("about",$language);
+	echo 'Swissbib Mobile.';
+
 }
 
 

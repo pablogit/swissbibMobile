@@ -3,14 +3,36 @@ function getMessage($messageKey,$language)
 {
 	$messages["didyoumean"]["fr"]="Essayez avec : ";
 	$messages["didyoumean"]["en"]="Did you mean : ";
+	$messages["didyoumean"]["de"]="Meinten Sie : ";
+	$messages["didyoumean"]["it"]="Forse cercavi : ";
 	$messages["noresults"]["fr"]="Pas de résultats. ";
 	$messages["noresults"]["en"]="No results. ";
+	$messages["noresults"]["de"]="Keine Treffer. ";
+	$messages["noresults"]["it"]="Nessun risultato. ";
 	$messages["numberofresults"]["fr"]=" résultats :";
 	$messages["numberofresults"]["en"]=" results :";
+	$messages["numberofresults"]["de"]=" Treffer :";
+	$messages["numberofresults"]["it"]=" risultati :";
 	$messages["revisesearch"]["fr"]="Modifiez votre recherche.";
 	$messages["revisesearch"]["en"]="Revise your search.";
+	$messages["revisesearch"]["de"]="Ändern Sie Ihre Suche.";
+	$messages["revisesearch"]["it"]="Modificare la ricerca.";
 	$messages["next"]["fr"]="Suivant...";
 	$messages["next"]["en"]="Next results...";
+	$messages["next"]["de"]="Nächste Treffer...";
+	$messages["next"]["it"]="Avanti...";
+	$messages["search"]["fr"]="Chercher";
+	$messages["search"]["en"]="Search";
+	$messages["search"]["de"]="Suchen";
+	$messages["search"]["it"]="Cerca";
+	$messages["about"]["fr"]="A propos de ";
+	$messages["about"]["en"]="About ";
+	$messages["about"]["de"]="Über ";
+	$messages["about"]["it"]="A proposito di ";
+	$messages["regular"]["fr"]="Swissbib classique";
+	$messages["regular"]["en"]="Regular Swissbib";
+	$messages["regular"]["de"]="Swissbib klassisch";
+	$messages["regular"]["it"]="Swissbib normale";
 	
 	return $messages[$messageKey][$language];
 }
@@ -762,6 +784,10 @@ function getLibraryName($libraryCode)
 	$libraries["c80000"]="Kantons- und Universitätsbibliothek Freiburg";
 	$libraries["c90000"]="L'Abbaye de Saint-Maurice";
 	
-	return $libraries[$libraryCode];
+	if (array_key_exists($libraryCode, $libraries)) {
+		return $libraries[$libraryCode];
+	} else {
+		return "";
+	}
 }
 ?>
