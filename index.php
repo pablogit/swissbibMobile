@@ -143,7 +143,7 @@ echo '
 
 <br/><br/>
 <ul data-role="listview">
-  <li><a href="http://swissbib.ch/?nomobile" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
+  <li><a href="http://www.swissbib.ch" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
 </ul>
 
 	<br />
@@ -164,9 +164,10 @@ echo '
 		echo '</a>';
 	}
 
-	echo '</div>';
+	echo '</div>';	
 	echo getMessage("about",$language);
-	echo 'Swissbib Mobile.';
+	echo '<a href="https://github.com/swissbib/swissbibMobile">';
+	echo 'Swissbib Mobile</a>.';
 
 }
 
