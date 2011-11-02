@@ -1,6 +1,6 @@
 ﻿<?php
 
-function displayItem($id, $network=false, $library=false, $language='en')
+function displayItem($id, $network=false, $library=false, $language='de')
 {
 	$sruQuery = new SruQuery();	
 	$pxml=$sruQuery->getRecordFromIdWithHoldings($id);	
@@ -39,7 +39,7 @@ function displayItem($id, $network=false, $library=false, $language='en')
 		if (   (getHoldingField($item,'B')==$network && $library==false) 
 		    || (getHoldingField($item,'b')==$library && $library==true) 
 			|| ($network==false && $library==false) 
-		) {//display only nebis item or only e02 item if epfbibonly is checked
+		) {//display only item in the network or only librari item if checkbox is checked
 		
 			echo '<li>';
 			
@@ -47,9 +47,16 @@ function displayItem($id, $network=false, $library=false, $language='en')
 			
 						
 			echo '<h3>';
+			$libraryName=getHoldingField($item,'0');
+			$libraryCode=getHoldingField($item,'b');			
+			if ($libraryName!="") {
+				echo $libraryName;
+			} else if (substr($libraryCode,1,1)=="0") {				
+				echo getLibraryName("R".substr($libraryCode,0,4));
+			} else {
 				
-			
-			echo getHoldingField($item,'0');
+				echo getLibraryName("R".substr($libraryCode,0,5));
+			}
 			echo '</h3>';
 			echo '<p><strong>';
 			echo getHoldingField($item,'1');
