@@ -126,11 +126,14 @@ if (!isset($_REQUEST["language"])) {
 			//display a single item	
 			displayItem($_REQUEST["id"], $network, $library, $language);	
 		} else {
+			$urlRegularSwissbib='http://www.swissbib.ch/';
+			if ($language!='de') {
+				$urlRegularSwissbib=$urlRegularSwissbib.$language;
+			}
 			echo '
-
 			<br/><br/>
 			<ul data-role="listview">
-			  <li><a href="http://www.swissbib.ch" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
+			  <li><a href="'.$urlRegularSwissbib.'" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
 			</ul>
 			<br />
 			<div data-role="controlgroup" data-type="horizontal" align="center">';
