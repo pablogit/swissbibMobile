@@ -21,7 +21,7 @@ All libraries in swissbib (more than 700) can use this service to display a mobi
 * [http://sisbsrv15.epfl.ch/library/swissbib/index.php?network=IDSBB&library=A100](http://sisbsrv15.epfl.ch/library/swissbib/index.php?network=IDSBB&library=A100) : search in a specific library network (network code IDS Basel-Bern in the example) with a predefined filter for a specific library (UB Basel in the example). 
 * [http://sisbsrv15.epfl.ch/library/swissbib/index.php?network=IDSBB](http://sisbsrv15.epfl.ch/library/swissbib/index.php?network=IDSBB) : search only in a specific network (IDS Basel-Bern in the example)
 
-To use this, you need to add the wanted parameters after the url `http://sisbsrv15.epfl.ch/library/swissbib?`. For example for IDS Basel-Bern network, add `network=IDSBB`. For UB Basel, add `library=A100`. Have a look at the list of [all library codes and network codes](http://www.swissbib.ch/TouchPoint/nose/common/docs/Codelist_for_swissbib_20100131.pdf).
+To use this, you need to add the wanted parameters after the url `http://sisbsrv15.epfl.ch/library/swissbib?`. For example for IDS Basel-Bern network, add `network=IDSBB`. For UB Basel, add `library=A100`. Have a look at the list of [all library codes and network codes](https://github.com/downloads/swissbib/swissbibMobile/library_codes.pdf).
 
 
 Use it on your own servers
