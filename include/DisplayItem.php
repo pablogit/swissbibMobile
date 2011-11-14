@@ -51,10 +51,11 @@ function displayItem($id, $network=false, $library=false, $language='de')
 			$libraryCode=getHoldingField($item,'b');			
 			if ($libraryName!="") {
 				echo $libraryName;
-			} else if (substr($libraryCode,1,1)=="0") {				
+			} else if ($libraryCode=='SNL') {
+				echo getLibraryName('S1');			
+			} else if (substr($libraryCode,1,1)=="0") {		//Rero Fribourg
 				echo getLibraryName("R".substr($libraryCode,0,4));
-			} else {
-				
+			} else { //Other Rero
 				echo getLibraryName("R".substr($libraryCode,0,5));
 			}
 			echo '</h3>';
