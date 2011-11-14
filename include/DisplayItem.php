@@ -36,8 +36,34 @@ function displayItem($id, $network=false, $library=false, $language='de')
 
 	
 	foreach ($results as $item) {
-		if (   (getHoldingField($item,'B')==$network && $library==false) 
-		    || (getHoldingField($item,'b')==$library && $library==true) 
+		$itemNetwork=getHoldingField($item,'B');
+		$itemLibraryCode=getHoldingField($item,'b');
+		if (substr($network,0,1)=='R' && $itemNetwork=='RERO') { 
+		//address searches in local rero networks, get library and network codes from $itemLibraryCode, i.e. 949$b
+		//for rero results, the 949$B is always RERO and not the local network codes
+		//the local network is in 949$b, first digit for RERO-FR and first and second digits for other rero networks
+		//the library code is in 949$b, digits 1-5 for RERO-FR and digits 1-6 for other rero networks
+			if (substr($itemLibraryCode,1,1)=="0") {//Rero Fribourg
+				if ($network!='R*') { 
+					$itemNetwork='R1'; //i.e. R1
+				} else {
+					$itemNetwork='R*';
+				}
+				$itemLibraryCode='R'.substr($itemLibraryCode,0,4);
+			} else { //other rero
+				if ($network!='R*') {
+					$itemNetwork='R'.substr($itemLibraryCode,0,2);
+				} else {
+					$itemNetwork='R*';
+				}
+				$itemLibraryCode='R'.substr($itemLibraryCode,0,5);				
+			}
+		}
+		
+		
+		
+		if (   ($itemNetwork==$network && $library==false) 
+		    || ($itemLibraryCode==$library && $library==true) 
 			|| ($network==false && $library==false) 
 		) {//display only items in the network or only library items if checkbox is checked
 		
@@ -48,18 +74,13 @@ function displayItem($id, $network=false, $library=false, $language='de')
 						
 			echo '<h3>';
 			$libraryName=getHoldingField($item,'0');
-			$libraryCode=getHoldingField($item,'b');	
-			$itemNetwork=getHoldingField($item,'B');
+			
 			if ($libraryName!="") {
 				echo $libraryName;
 			} else if ($itemNetwork=='SNL') { //Swiss National Library
 				echo getLibraryName('S1');			
-			} else if ($itemNetwork=='RERO' && substr($libraryCode,1,1)=="0") {		//Rero Fribourg
-				echo getLibraryName("R".substr($libraryCode,0,4));
-			} else if ($itemNetwork=='RERO') { //Other Rero
-				echo getLibraryName("R".substr($libraryCode,0,5));
-			} else if ($itemNetwork=='CCSA') {					
-				echo getLibraryName($libraryCode);
+			} else if (substr($itemNetwork,0,1)=='R' || $itemNetwork=='CCSA') {	
+				echo getLibraryName($itemLibraryCode);
 			}
 			echo '</h3>';
 			echo '<p><strong>';
