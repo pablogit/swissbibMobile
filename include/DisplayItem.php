@@ -38,7 +38,9 @@ function displayItem($id, $network=false, $library=false, $language='de')
 	foreach ($results as $item) {
 		$itemNetwork=getHoldingField($item,'B');
 		$itemLibraryCode=getHoldingField($item,'b');
-		if (substr($network,0,1)=='R' && $itemNetwork=='RERO') { 
+		if ( (substr($network,0,1)=='R' || $network==false)
+			 && $itemNetwork=='RERO'
+		) { 
 		//address searches in local rero networks, get library and network codes from $itemLibraryCode, i.e. 949$b
 		//for rero results, the 949$B is always RERO and not the local network codes
 		//the local network is in 949$b, first digit for RERO-FR and first and second digits for other rero networks
