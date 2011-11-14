@@ -39,7 +39,7 @@ function displayItem($id, $network=false, $library=false, $language='de')
 		if (   (getHoldingField($item,'B')==$network && $library==false) 
 		    || (getHoldingField($item,'b')==$library && $library==true) 
 			|| ($network==false && $library==false) 
-		) {//display only item in the network or only librari item if checkbox is checked
+		) {//display only items in the network or only library items if checkbox is checked
 		
 			echo '<li>';
 			
@@ -48,15 +48,18 @@ function displayItem($id, $network=false, $library=false, $language='de')
 						
 			echo '<h3>';
 			$libraryName=getHoldingField($item,'0');
-			$libraryCode=getHoldingField($item,'b');			
+			$libraryCode=getHoldingField($item,'b');	
+			$itemNetwork=getHoldingField($item,'B');
 			if ($libraryName!="") {
 				echo $libraryName;
-			} else if ($libraryCode=='SNL') {
+			} else if ($itemNetwork=='SNL') { //Swiss National Library
 				echo getLibraryName('S1');			
-			} else if (substr($libraryCode,1,1)=="0") {		//Rero Fribourg
+			} else if ($itemNetwork=='RERO' && substr($libraryCode,1,1)=="0") {		//Rero Fribourg
 				echo getLibraryName("R".substr($libraryCode,0,4));
-			} else { //Other Rero
+			} else if ($itemNetwork=='RERO') { //Other Rero
 				echo getLibraryName("R".substr($libraryCode,0,5));
+			} else if ($itemNetwork=='CCSA') {					
+				echo getLibraryName($libraryCode);
 			}
 			echo '</h3>';
 			echo '<p><strong>';
