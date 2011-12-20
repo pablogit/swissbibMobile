@@ -38,8 +38,7 @@ function displayItem($id, $network=false, $library=false, $language='de')
 	foreach ($results as $item) {
 		$itemNetwork=getHoldingField($item,'B');
 		$itemLibraryCode=getHoldingField($item,'b');
-		echo $itemNetwork;
-		echo $itemLibraryCode;
+
 		if ( (substr($network,0,1)=='R' || $network==false)
 			 && $itemNetwork=='RERO'
 		) { 
@@ -63,8 +62,7 @@ function displayItem($id, $network=false, $library=false, $language='de')
 				$itemLibraryCode='R'.substr($itemLibraryCode,0,5);				
 			}
 		}
-		
-		echo $itemLibraryCode;
+				
 		
 		if (   ($itemNetwork==$network && $library==false) 
 		    || ($itemLibraryCode==$library && $library==true) 
