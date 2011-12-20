@@ -38,6 +38,8 @@ function displayItem($id, $network=false, $library=false, $language='de')
 	foreach ($results as $item) {
 		$itemNetwork=getHoldingField($item,'B');
 		$itemLibraryCode=getHoldingField($item,'b');
+		echo $itemNetwork;
+		echo $itemLibraryCode;
 		if ( (substr($network,0,1)=='R' || $network==false)
 			 && $itemNetwork=='RERO'
 		) { 
@@ -62,7 +64,7 @@ function displayItem($id, $network=false, $library=false, $language='de')
 			}
 		}
 		
-		
+		echo $itemLibraryCode;
 		
 		if (   ($itemNetwork==$network && $library==false) 
 		    || ($itemLibraryCode==$library && $library==true) 
@@ -77,11 +79,11 @@ function displayItem($id, $network=false, $library=false, $language='de')
 			echo '<h3>';
 			$libraryName=getHoldingField($item,'0');
 			
-			if ($libraryName!="") {
+			if (trim($libraryName)!="") {
 				echo $libraryName;
 			} else if ($itemNetwork=='SNL') { //Swiss National Library
 				echo getLibraryName('S1');			
-			} else if (substr($itemNetwork,0,1)=='R' || $itemNetwork=='CCSA') {	
+			} else if (substr($itemNetwork,0,1)=='R' || $itemNetwork=='CCSA') {					
 				echo getLibraryName($itemLibraryCode);
 			}
 			echo '</h3>';
