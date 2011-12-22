@@ -19,7 +19,7 @@ if (!isset($_REQUEST["language"])) {
 ?>
 <html>
 	<head>
-	<title>Swissbib Mobile</title>
+	<title>swissbib mobile</title>
 	<?php
 	include("include/html/header.html");
 	?>
@@ -44,7 +44,7 @@ if (!isset($_REQUEST["language"])) {
 
 	<div data-role="page" data-add-back-btn="true">
 		<div data-role="header" data-theme="l">
-			<h1>Swissbib</h1>
+			<h1>swissbib&nbsp;<img src="http://www.swissbib.org/doc/test_3.png"/></h1>
 		</div>
 		<div data-role="content">
 		
