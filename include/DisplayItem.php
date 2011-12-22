@@ -71,7 +71,7 @@ function displayItem($id, $network=false, $library=false, $language='de')
 		
 			echo '<li>';
 			
-			echo '<a href="http://www.swissbib.ch/TouchPoint/perma.do?q=0%3D%22'.$id.'%22+IN+[3]&v=nose&l='.$language.'" rel="external" target="_blank">';
+			echo '<a href="http://www.swissbib.ch/TouchPoint/perma.do?q=0%3D%22'.$id.'%22+IN+[3]&v=nose&l='.$language.'&library='.$itemLibraryCode.'" rel="external" target="_blank">';
 			
 						
 			echo '<h3>';
