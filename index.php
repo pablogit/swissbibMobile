@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <?php
+ header("Content-Type: text/html");
 include("include/Header.php");
 //get browser language
 $languages=array("de", "fr", "it", "en");
@@ -126,7 +127,7 @@ if (!isset($_REQUEST["language"])) {
 			//display a single item	
 			displayItem($_REQUEST["id"], $network, $library, $language);	
 		} else {
-			$urlRegularSwissbib='http://www.swissbib.ch/';
+			$urlRegularSwissbib='http://www.swissbib.ch/TouchPoint/start.do';
 			if ($language!='de') {
 				$urlRegularSwissbib=$urlRegularSwissbib.$language;
 			}
