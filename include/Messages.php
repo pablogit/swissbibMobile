@@ -29,10 +29,10 @@ function getMessage($messageKey,$language)
 	$messages["about"]["en"]="About ";
 	$messages["about"]["de"]="Über ";
 	$messages["about"]["it"]="A proposito di ";
-	$messages["regular"]["fr"]="Swissbib classique";
-	$messages["regular"]["en"]="Regular Swissbib";
-	$messages["regular"]["de"]="Swissbib klassisch";
-	$messages["regular"]["it"]="Swissbib normale";
+	$messages["regular"]["fr"]="Site web classique";
+	$messages["regular"]["en"]="Regular web site";
+	$messages["regular"]["de"]="Website klassisch";
+	$messages["regular"]["it"]="Website normale";
 	
 	return $messages[$messageKey][$language];
 }

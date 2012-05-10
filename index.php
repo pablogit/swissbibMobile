@@ -20,7 +20,7 @@ if (!isset($_REQUEST["language"])) {
 ?>
 <html>
 	<head>
-	<title>swissbib mobile</title>
+	<title>BiUM mobile</title>
 	<?php
 	include("include/html/header.html");
 	?>
@@ -45,7 +45,7 @@ if (!isset($_REQUEST["language"])) {
 
 	<div data-role="page" data-add-back-btn="true">
 		<div data-role="header" data-theme="l">
-			<h1>swissbib&nbsp;<img src="http://www.swissbib.org/doc/test_3.png"/></h1>
+			<h1>BiUM mobile</h1>
 		</div>
 		<div data-role="content">
 		
@@ -60,55 +60,56 @@ if (!isset($_REQUEST["language"])) {
 				echo $_REQUEST["q"];
 			}
 			echo '"/>';
-			
-			echo '<input type="hidden" name="network" value="';
 			if (isset($_REQUEST["network"])) {
-				echo $_REQUEST["network"];
+				$network = $_REQUEST["network"];
 			}
-			echo '"/>';
-			
-			echo '<input type="hidden" name="library" value="';
+			else
+				$network = "R81";
 			if (isset($_REQUEST["library"])) {
-				echo $_REQUEST["library"];
+				$library = $_REQUEST["library"];
 			}
-			echo '"/>';
-			
+			else
+				$library = "R81081";
+
+			echo '<input type="hidden" name="network" value="'.$network.'"/>';
+			echo '<input type="hidden" name="library" value="'.$library.'"/>';
+			echo '<input type="hidden" name="libraryfilter" value="on"/>';
 			echo '<input type="hidden" name="language" value="'.$language.'"/>';
-				
+
 			echo '<input type="submit" value="'.getMessage("search",$language).'" data-icon="search" data-iconpos="right" />';
 
-			if (isset($_REQUEST["library"]) && $_REQUEST["library"]!=false) {
-				echo '<fieldset data-role="controlgroup">';
-				echo '<input type="checkbox" name="libraryfilter" id="checkbox-1" class="custom"';
-				if (isset($_REQUEST["libraryfilter"]) and $_REQUEST["libraryfilter"]=="on") {
-					echo "checked";
-				}
-				echo '>';
-				echo '<label for="checkbox-1">'.getLibraryName($_REQUEST["library"]).'</label>';
-				echo '</fieldset>';
-			}
+//			if (isset($_REQUEST["library"]) && $_REQUEST["library"]!=false) {
+//				echo '<fieldset data-role="controlgroup">';
+//				echo '<input type="checkbox" name="libraryfilter" id="checkbox-1" class="custom"';
+//				if (isset($_REQUEST["libraryfilter"]) and $_REQUEST["libraryfilter"]=="on") {
+//					echo "checked";
+//				}
+//				echo '>';
+//				echo '<label for="checkbox-1">'.getLibraryName($_REQUEST["library"]).'</label>';
+//				echo '</fieldset>';
+//			}
 			echo '</form>';
 		}
 
 
-		if(isset($_REQUEST["libraryfilter"]) ) { 
-			$library=$_REQUEST["library"];	
-		}
-		else
-		{
-			$library=false;
-		}
+//		if(isset($_REQUEST["libraryfilter"]) ) { 
+//			$library=$_REQUEST["library"];	
+//		}
+//		else
+//		{
+//			$library=false;
+//		}
 
 
 
-			
-		if(isset($_REQUEST["network"])){
-			$network=$_REQUEST["network"];
-		}
-		else{
-			$network=false;
-			
-		}
+
+//		if(isset($_REQUEST["network"])){
+//			$network=$_REQUEST["network"];
+//		}
+//		else{
+//			$network=false;
+//			
+//		}
 
 			
 		if (isset($_REQUEST["q"])) {
@@ -155,7 +156,7 @@ if (!isset($_REQUEST["language"])) {
 			echo '</div>';	
 			echo getMessage("about",$language);
 			echo '<a href="https://github.com/swissbib/swissbibMobile">';
-			echo 'Swissbib Mobile</a>.';
+			echo 'powered by Swissbib Mobile</a>.';
 		}
 
 
