@@ -137,9 +137,15 @@ if (!isset($_REQUEST["language"])) {
 			<br/><br/>
 			<ul data-role="listview">
 			  <li>Horaires d\'ouverture : 8h00 - 22h00 tous les jours</li>
-			  <li><a href="'.$urlRegularSwissbib.'" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
-			  <li><a href="http://www.bium.ch/wiki" rel="external" target="_blank">Wiki</a></li>
-			  <li><a href="http://www.bium.ch/blog" rel="external" target="_blank">Blog</a></li>
+
+			  <li><a href="http://www.ncbi.nlm.nih.gov/m/pubmed/" rel="external" target="_blank">PubMed mobile</a></li>
+			  <li><a href="http://m.webofknowledge.com/" rel="external" target="_blank">Web of Knowledge mobile</a></li>
+			  <li><a href="http://www2.unil.ch/perunil/" rel="external" target="_blank">perUnil</a></li>
+			  <li><a href="http://www2.unil.ch/ebooks/" rel="external" target="_blank">ebooksUnil</a></li>
+			  <li><a href="http://www.bium.ch/wiki" rel="external" target="_blank">BiUM Wiki</a></li>
+			  <li><a href="http://www.bium.ch/blog" rel="external" target="_blank">BiUM Blog</a></li>
+			  <li><a href="http://www.chuv.ch/bdfm/" rel="external" target="_blank">BiUM site classic</a></li>
+
 			</ul>
 			<br />
 			<div data-role="controlgroup" data-type="horizontal" align="center">';
