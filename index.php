@@ -49,8 +49,9 @@ if (!isset($_REQUEST["language"])) {
 		</div>
 		<div data-role="content">
 		
-
-
+			<b>Catalogue : </b>
+			<br/>
+			<br/>
 		<?php
 		//the form is hidden when we display a specific record
 		if (!isset($_REQUEST["id"])) {
@@ -135,7 +136,10 @@ if (!isset($_REQUEST["language"])) {
 			echo '
 			<br/><br/>
 			<ul data-role="listview">
+			  <li>Horaires d\'ouverture : 8h00 - 22h00 tous les jours</li>
 			  <li><a href="'.$urlRegularSwissbib.'" rel="external" target="_blank">'.getMessage("regular",$language).'</a></li>
+			  <li><a href="http://www.bium.ch/wiki" rel="external" target="_blank">Wiki</a></li>
+			  <li><a href="http://www.bium.ch/blog" rel="external" target="_blank">Blog</a></li>
 			</ul>
 			<br />
 			<div data-role="controlgroup" data-type="horizontal" align="center">';
