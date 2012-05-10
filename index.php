@@ -128,10 +128,10 @@ if (!isset($_REQUEST["language"])) {
 			//display a single item	
 			displayItem($_REQUEST["id"], $network, $library, $language);	
 		} else {
-			$urlRegularSwissbib='http://www.swissbib.ch/TouchPoint/start.do';
-			if ($language!='de') {
-				$urlRegularSwissbib=$urlRegularSwissbib.$language;
-			}
+			$urlRegularSwissbib='http://www.chuv.ch/bdfm/';
+//			if ($language!='de') {
+//				$urlRegularSwissbib=$urlRegularSwissbib.$language;
+//			}
 			echo '
 			<br/><br/>
 			<ul data-role="listview">
@@ -154,7 +154,7 @@ if (!isset($_REQUEST["language"])) {
 			}
 
 			echo '</div>';	
-			echo getMessage("about",$language);
+//			echo getMessage("about",$language);
 			echo '<a href="https://github.com/swissbib/swissbibMobile">';
 			echo 'powered by Swissbib Mobile</a>.';
 		}
